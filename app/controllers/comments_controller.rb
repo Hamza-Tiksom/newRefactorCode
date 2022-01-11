@@ -7,9 +7,9 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.new(comment_params)
-    @comment.user = current_user
+    @comment.user_id = current_user.id
     if @comment.save
-      redirect_to @comment
+      redirect_to @post
     else
       render :new, status: :unprocessable_entity
     end
