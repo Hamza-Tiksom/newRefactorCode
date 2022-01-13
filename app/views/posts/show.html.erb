@@ -6,13 +6,15 @@
    <strong>Body:</strong>
    <%= @post.body %>
 </p>
+<div class="field">
+
+</div>
+
 <p>
    <strong>Comment:</strong>
+   <%= render "comments/comment", comments: @post.comments%>
+    <%= render "comments/form" %>
 </p>
 
-   <%= render "comments/comment", comments: @post.comments%>
-   <%= render "comments/form" %>
-
-
-#     <%= link_to 'Edit', edit_post_path(@post) %>
-#     <%= link_to 'Back', posts_path %>
+     <%= link_to 'Edit', edit_post_path(@post) %>
+     <%= link_to 'Back', posts_path %>

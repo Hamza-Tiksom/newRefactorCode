@@ -23,22 +23,23 @@ class CommentsController < ApplicationController
     @comment = @post.comments.find(params[:id])
     if @comment.user_id == current_user.id || @post.user_id == current_user.id
       @comment.destroy
-      redirect_to post_path
+      redirect_to @post
     else
       redirect_to posts_path
     end
   end
 
-  # def edit
-  #   @comment=Comment.find(params[:id])
-  # end
-  # def update
-  #   @comment = Comment.find(params[:id])
-  #   if @comment.update(post_params)
-  #     redirect_to comment_path
-  #   else
-  #     render :edit, status: :unprocessable_entity
-  #   end
+  def edit
+    @comment=@post.comments.find(params[:id])
+  end
+  def update
+    @comment = @post.comments.find(params[:id])
+    if @comment.update(comment_params)
+      redirect_to @post
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
 
   private
 

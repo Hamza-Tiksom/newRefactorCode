@@ -1,16 +1,4 @@
 <h2>Editing Comment</h2>
+<%= render "comments/form"  %>
 
-<%= form_with model: [ @post, @comment] do |f| %>
-  <div class="row">
-    <div class="form-group col-md-4">
-      <%= f.label :Comment %><br>
-      <%= f.text_area :content, class: "form-control" %>
-    </div>
-  </div>
-  <div class="actions">
-    <%= f.submit  class: "btn btn-primary" %>
-  </div>
-<% end %>
-
-<%= link_to 'Show', @product, class: "btn btn-warning" %>
-<%= link_to 'Back', posts_path, class: "btn btn-default" %>
+<%= link_to 'Show', @post, class: "btn btn-warning" %>

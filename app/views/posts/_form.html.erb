@@ -20,6 +20,13 @@
     <%= form.text_field :body %>
   </div>
 
+  <div class="field">
+      <%= form.label :category %>
+      <%= form.select :category, Category.all.map { |c| [c.category] } %>
+    </div>
+
+
+
   <div class="actions">
     <%= form.submit %>
   </div>

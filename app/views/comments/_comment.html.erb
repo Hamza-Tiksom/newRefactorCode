@@ -1,7 +1,7 @@
 <% comments.each do |comment| %>
     <ul>
-       <li><%= comment.content %></li>
-
+       <li><%= comment.content %> <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
+       <%= link_to 'Destroy', post_comment_path(@post.id, comment.id), method: :delete, data: { confirm: 'Are you sure?'}  %></li>
     </ul>
 <% end %>
 

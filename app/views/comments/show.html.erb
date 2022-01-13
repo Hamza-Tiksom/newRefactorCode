@@ -4,15 +4,11 @@
     <td>
       <li>
         <tr><%= comment.content %></tr>
-        <% if user_signed_in? %>
-          <tr> <%= link_to 'Edit', edit_post_comment_path(@post.id, comment.id) %></tr>
-          <tr><%= link_to 'Destroy', post_comment_path(@post.id, comment.id), method: :delete, data: { confirm: 'Are you sure?'}  %></tr>
-        <% end %>
-        <% end %>
+#         <% if user_signed_in? %>
+#           <tr> <%= link_to 'Edit', edit_post_comment_path(@post.id, comment.id) %></tr>
+#           <tr><%= link_to 'Destroy', post_comment_path(@post.id, comment.id), method: :delete, data: { confirm: 'Are you sure?'}  %></tr>
+#         <% end %>
       </li>
-
     </td>
-
   </ul>
-
 <% end %>
