@@ -59,11 +59,12 @@ ActiveRecord::Schema.define(version: 2022_01_13_120207) do
 
   create_table "likes", force: :cascade do |t|
     t.bigint "post_id", null: false
-    t.bigint "comment_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["comment_id"], name: "index_likes_on_comment_id"
     t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id", "post_id"], name: "index_likes_on_user_id_and_post_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -71,7 +72,7 @@ ActiveRecord::Schema.define(version: 2022_01_13_120207) do
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.bigint "category_id", null: false
     t.index ["category_id"], name: "index_posts_on_category_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
@@ -107,7 +108,6 @@ ActiveRecord::Schema.define(version: 2022_01_13_120207) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
-  add_foreign_key "likes", "comments"
   add_foreign_key "likes", "posts"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"

@@ -14,6 +14,6 @@ class User < ApplicationRecord
   protected
 
   def assigned_default_method
-    self.add_role :client
+    # self.add_role :client
   end
 end
