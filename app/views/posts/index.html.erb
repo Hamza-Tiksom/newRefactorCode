@@ -6,6 +6,7 @@
     <tr>
       <th>Title</th>
       <th>Body</th>
+      <th>Category</th>
     </tr>
     </thead>
     <tbody>
@@ -16,6 +17,7 @@
           <%= current_user.roles.pluck(:name)%>
           <td><%= post.title %></td>
           <td><%= post.body %></td>
+          <td><%= post.category.category %></td>
           <td><button type="button" class="btn btn-info"><%= link_to "Show", post_path(post) %></button></td>
           <td><button type="button" class="btn btn-info"><%= link_to "Edit", edit_post_path(post) %></button></td>
           <td><button type="button" class="btn btn-info"><%= link_to "Delete", post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></button></td>

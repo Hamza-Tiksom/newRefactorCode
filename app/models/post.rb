@@ -1,8 +1,7 @@
 class Post < ApplicationRecord
-  belongs_to :user
-  has_one :admin_user
+  belongs_to :user, optional: true
   has_many :comments ,dependent: :destroy
-  has_many :likes
+  has_many :likes ,dependent: :destroy
   belongs_to :category
   validates :title , presence: true
   validates :body, presence: true , length: {minimum: 10}
