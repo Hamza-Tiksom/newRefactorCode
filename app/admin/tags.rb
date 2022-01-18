@@ -1,5 +1,5 @@
-ActiveAdmin.register Post do
-  permit_params :category_id, :title, :body, :user_id, :tag_id
+ActiveAdmin.register Tag do
+  permit_params :name ,:body
   # index do
   #   # selectable_column
   #   # id_column

@@ -9,10 +9,15 @@
    <%= @post.body %>
 </p>
 
-
 <p>
    <strong>Category:</strong>
    <%=@post.category.category%>
+</p>
+<p>
+   <strong>Tags:</strong>
+   <% @post.tags.each do |u| %>
+   <%=  u.name %>
+   <% end %>
 </p>
 
 <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
