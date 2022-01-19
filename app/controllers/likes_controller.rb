@@ -1,6 +1,7 @@
 class LikesController < ApplicationController
-  before_action :set_post
+
   before_action :find_like, only: [:destroy]
+  before_action :set_post
 
   def create
     if already_liked?
@@ -39,16 +40,3 @@ class LikesController < ApplicationController
 
 
 end
-# def create
-#   @like=current_user.likes.new(like_params)
-#   if !@likes.save
-#     flash[:notice]=@like.errors.full_messages.to_sentance
-#     redirect_to @like.post
-#   end
-# end
-# def destroy
-#   @like=current_user.likes.find(params[:id])
-#   post=@like.post
-#   @like.destroy
-#   redirect_to post
-# end

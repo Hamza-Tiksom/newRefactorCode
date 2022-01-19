@@ -9,11 +9,19 @@ class User < ApplicationRecord
   has_many :likes ,dependent: :destroy
   has_one :role
 
-  after_create :assigned_default_method
+  after_create :assign_default_role
 
-  protected
+  def admin?
+    has_role?(:admin)
+  end
 
-  def assigned_default_method
-    # self.add_role :client
+  def client?
+    has_role?(:client)
+  end
+
+  private
+
+  def assign_default_role
+    self.add_role :client
   end
 end
