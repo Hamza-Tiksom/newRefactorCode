@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  has_many :post ,dependent: :destroy
+  has_many :posts ,dependent: :destroy
 end

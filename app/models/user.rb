@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :comments ,dependent: :destroy
   has_many :posts ,dependent: :destroy
   has_many :likes ,dependent: :destroy
-  has_one :role
+  # has_one :role
 
   after_create :assign_default_role
 
