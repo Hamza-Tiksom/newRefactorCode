@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @post
     else
-       render :new, status: :unprocessable_entity
+       redirect_to @post , notice: 'Blank comment'
     end
   end
 
@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
       @comment.destroy
       redirect_to @post
     else
-      redirect_to posts_path
+      redirect_to @post
     end
   end
 
