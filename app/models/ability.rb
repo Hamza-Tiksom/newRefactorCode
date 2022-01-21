@@ -12,13 +12,10 @@ class Ability
         can :manage, :all
       elsif user.client?
         can :manage, Post, user_id: user.id
-
-      else
-        can :manage, Post, user_id: user.id
         can :manage, Comment, user_id: user.id
-
-        # can :manage, :all
-        can :read
+      else
+        can :read ,Post
+        can :read ,Comment
       end
 
     #

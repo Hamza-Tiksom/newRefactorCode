@@ -13,19 +13,19 @@
     <tr>
       <% @posts.each do |post| %>
       <tr>
-        <% if post.user == current_user %>
           <td><%= post.title %></td>
           <td><%= post.body %></td>
           <td><%= post.category.category %></td>
+
+
           <td><button type="button" class="btn btn-info"><%= link_to "Show", post_path(post) %></button></td>
-          <td><button type="button" class="btn btn-info"><%= link_to "Edit", edit_post_path(post) %></button></td>
-          <td><button type="button" class="btn btn-info"><%= button_to "Delete", post, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+          <% if can? :update , post%>
+            <td><button type="button" class="btn btn-info"><%= link_to "Edit", edit_post_path(post) %></button></td>
+          <% end %>
+          <% if can? :delete , post %>
+          <td><button type="button" class="btn btn-info"><%= link_to "Delete", post, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+          <% end %>
           </tr>
-        <% else %>
-          <td><%= post.title %></td>
-          <td><%= post.body %></td>
-         <td> <button type="button" class="btn btn-info"><%= link_to "Show", post_path(post) %></button></td>
-        <% end %>
     <% end %>
     </tr>
     </tbody>
